@@ -1,0 +1,79 @@
+---
+const features = [
+  {
+    icon: "chart",
+    title: "Analíticos en CRM",
+    description:
+      "La rero maxem alaum consectetur adipiscing elit, sed diamonum nonummy nibh euismod tincidunt ut contacto encidencia.",
+  },
+  {
+    icon: "users",
+    title: "Leads de butidarios",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incididunt ut elim magna alidencia.",
+  },
+  {
+    icon: "target",
+    title: "Competencias Clave",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor, aliques euismoe socion ost altem.",
+  },
+  {
+    icon: "document",
+    title: "Autignarios con CRM",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incididunt ut labore magna magniqua.",
+  },
+];
+
+const getIcon = (icon: string) => {
+  const icons: Record<string, string> = {
+    chart:
+      "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z",
+    users:
+      "M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z",
+    target: "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6",
+    document:
+      "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
+  };
+  return icons[icon] || icons.chart;
+};
+---
+
+<section id="producto" class="py-20 lg:py-32 bg-gray-50">
+  <div class="section-padding">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl lg:text-4xl font-bold text-dark mb-4">
+        Características Clave
+      </h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {
+        features.map((feature) => (
+          <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 text-center group">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+              <svg
+                class="w-8 h-8 text-primary group-hover:text-white transition-colors"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d={getIcon(feature.icon)}
+                />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-dark mb-4">{feature.title}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              {feature.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

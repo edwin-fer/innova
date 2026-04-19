@@ -1,0 +1,137 @@
+---
+const plans = [
+  {
+    name: "Stata",
+    price: null,
+    description:
+      "Consecteturs clientes insingen meets, consectet y enganid comentaris.",
+    features: [],
+    popular: false,
+    cta: "Comenzar",
+  },
+  {
+    name: "Plan",
+    price: null,
+    description: "",
+    features: ["Persona de leads", "Comprensumendas", "Autotuvidion insig"],
+    popular: false,
+    cta: "Seleccionar Plan",
+  },
+  {
+    name: "Profesional",
+    price: null,
+    description: "",
+    features: [
+      "Software de heads",
+      "Rodotector de inmersión",
+      "Entrega options",
+    ],
+    popular: true,
+    cta: "Seleccionar Plan",
+  },
+  {
+    name: "Premio",
+    price: null,
+    description: "",
+    features: [
+      "Deliver de sanserCRM",
+      "Rodotector de inmersión",
+      "Manos de clients",
+    ],
+    popular: false,
+    cta: "Contactar Ventas",
+  },
+];
+---
+
+<section id="precios" class="py-20 lg:py-32 bg-white relative overflow-hidden">
+  <!-- Background decoration -->
+  <div
+    class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none"
+  >
+    <div
+      class="absolute -bottom-32 -left-32 w-64 h-64 bg-primary/5 rounded-full blur-3xl"
+    >
+    </div>
+    <div
+      class="absolute -top-32 -right-32 w-64 h-64 bg-secondary/5 rounded-full blur-3xl"
+    >
+    </div>
+  </div>
+
+  <div class="section-padding relative z-10">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl lg:text-4xl font-bold text-dark mb-4">
+        Planes y Precios
+      </h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+      {
+        plans.map((plan) => (
+          <div
+            class={`relative rounded-2xl p-6 transition-all duration-300 hover:scale-105 ${
+              plan.popular
+                ? "bg-white border-2 border-primary shadow-xl scale-105 z-10"
+                : "bg-gray-50 border border-gray-200 hover:shadow-lg"
+            }`}
+          >
+            {plan.popular && (
+              <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+                <span class="bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
+                  Popular
+                </span>
+              </div>
+            )}
+
+            <div class="text-center mb-6">
+              <h3 class="text-xl font-bold text-dark mb-2">{plan.name}</h3>
+              {plan.price && (
+                <p class="text-3xl font-bold text-primary">{plan.price}</p>
+              )}
+            </div>
+
+            {plan.description && (
+              <p class="text-sm text-gray-600 mb-6 text-center leading-relaxed">
+                {plan.description}
+              </p>
+            )}
+
+            {plan.features.length > 0 && (
+              <ul class="space-y-3 mb-6">
+                {plan.features.map((feature) => (
+                  <li class="flex items-start gap-2 text-sm text-gray-600">
+                    <svg
+                      class="w-5 h-5 text-primary flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            <button
+              class={`w-full py-3 rounded-lg font-medium transition-all duration-300 ${
+                plan.popular
+                  ? "bg-primary text-white hover:bg-secondary shadow-lg hover:shadow-xl"
+                  : "bg-white border-2 border-gray-300 text-gray-700 hover:border-primary hover:text-primary"
+              }`}
+            >
+              {plan.cta}
+            </button>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

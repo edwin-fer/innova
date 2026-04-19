@@ -1,0 +1,49 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Hero from "../components/Hero.astro";
+import Features from "../components/Features.astro";
+import Testimonials from "../components/Testimonials.astro";
+import Pricing from "../components/Pricing.astro";
+import SignupForm from "../components/SignupForm.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout title="InnovateCRM - Potencia tus Ventas y Fideliza Clientes">
+  <Navbar />
+
+  <main>
+    <!-- Hero Section with Signup Form -->
+    <section class="relative">
+      <Hero />
+
+      <!-- Signup Form positioned absolutely on desktop -->
+      <div
+        class="lg:absolute lg:top-32 lg:right-8 xl:right-20 2xl:right-32 lg:z-20 section-padding lg:px-0 mt-8 lg:mt-0"
+      >
+        <div class="flex justify-center lg:justify-end">
+          <SignupForm />
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <Features />
+
+    <!-- Testimonials Section -->
+    <Testimonials />
+
+    <!-- Pricing Section -->
+    <Pricing />
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* Ensure proper z-index stacking */
+  main {
+    position: relative;
+    z-index: 1;
+  }
+</style>

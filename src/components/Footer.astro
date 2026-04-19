@@ -1,0 +1,204 @@
+---
+const footerLinks = {
+  producto: [
+    { name: "Funciones", href: "#" },
+    { name: "Integraciones", href: "#" },
+    { name: "Precios", href: "#precios" },
+    { name: "Actualizaciones", href: "#" },
+  ],
+  empresa: [
+    { name: "Sobre Nosotros", href: "#" },
+    { name: "Blog", href: "#" },
+    { name: "Carreras", href: "#" },
+    { name: "Prensa", href: "#" },
+  ],
+  recursos: [
+    { name: "Documentación", href: "#" },
+    { name: "Tutoriales", href: "#" },
+    { name: "Webinars", href: "#" },
+    { name: "Soporte", href: "#" },
+  ],
+  legal: [
+    { name: "Privacidad", href: "#" },
+    { name: "Términos", href: "#" },
+    { name: "Cookies", href: "#" },
+    { name: "Licencias", href: "#" },
+  ],
+};
+
+const socialLinks = [
+  {
+    name: "Twitter",
+    icon: "M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z",
+  },
+  {
+    name: "LinkedIn",
+    icon: "M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z M4 6a2 2 0 100-4 2 2 0 000 4z",
+  },
+  {
+    name: "Facebook",
+    icon: "M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z",
+  },
+  {
+    name: "Instagram",
+    icon: "M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z",
+  },
+];
+---
+
+<footer class="bg-dark text-white pt-20 pb-10">
+  <div class="section-padding">
+    <div class="grid md:grid-cols-2 lg:grid-cols-6 gap-12 mb-16">
+      <!-- Brand -->
+      <div class="lg:col-span-2">
+        <a href="/" class="flex items-center gap-2 mb-6">
+          <div
+            class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center"
+          >
+            <svg
+              class="w-6 h-6 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <span class="text-2xl font-bold">InnovateCRM</span>
+        </a>
+        <p class="text-gray-400 mb-6 max-w-sm leading-relaxed">
+          La plataforma líder para gestionar tus relaciones con clientes y hacer
+          crecer tu negocio de manera inteligente.
+        </p>
+        <div class="flex gap-4">
+          {
+            socialLinks.map((social) => (
+              <a
+                href="#"
+                class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary transition-colors duration-300"
+                aria-label={social.name}
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d={social.icon}
+                  />
+                </svg>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div>
+        <h4 class="font-semibold mb-4 text-lg">Producto</h4>
+        <ul class="space-y-3">
+          {
+            footerLinks.producto.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="text-gray-400 hover:text-primary transition-colors duration-200"
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-semibold mb-4 text-lg">Empresa</h4>
+        <ul class="space-y-3">
+          {
+            footerLinks.empresa.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="text-gray-400 hover:text-primary transition-colors duration-200"
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-semibold mb-4 text-lg">Recursos</h4>
+        <ul class="space-y-3">
+          {
+            footerLinks.recursos.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="text-gray-400 hover:text-primary transition-colors duration-200"
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-semibold mb-4 text-lg">Legal</h4>
+        <ul class="space-y-3">
+          {
+            footerLinks.legal.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="text-gray-400 hover:text-primary transition-colors duration-200"
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom -->
+    <div
+      class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
+    >
+      <p class="text-gray-400 text-sm">
+        © 2024 InnovateCRM. Todos los derechos reservados.
+      </p>
+      <div class="flex gap-6">
+        <a
+          href="#"
+          class="text-gray-400 hover:text-primary text-sm transition-colors"
+          >Alicorante</a
+        >
+        <a
+          href="#"
+          class="text-gray-400 hover:text-primary text-sm transition-colors"
+          >Contacto</a
+        >
+        <a
+          href="#"
+          class="text-gray-400 hover:text-primary text-sm transition-colors"
+          >Mapa del sitio</a
+        >
+      </div>
+    </div>
+  </div>
+</footer>

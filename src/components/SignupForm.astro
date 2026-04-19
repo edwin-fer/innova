@@ -1,0 +1,172 @@
+---
+const countries = [
+  { code: "VE", name: "Venezuela", flag: "🇻🇪" },
+  { code: "CO", name: "Colombia", flag: "🇨🇴" },
+  { code: "MX", name: "México", flag: "🇲🇽" },
+  { code: "AR", name: "Argentina", flag: "🇦🇷" },
+  { code: "ES", name: "España", flag: "🇪🇸" },
+  { code: "US", name: "Estados Unidos", flag: "🇺🇸" },
+  { code: "CL", name: "Chile", flag: "🇨🇱" },
+  { code: "PE", name: "Perú", flag: "🇵🇪" },
+];
+---
+
+<div
+  class="bg-white rounded-2xl shadow-2xl p-6 lg:p-8 w-full max-w-sm border border-gray-100"
+>
+  <h3 class="text-xl font-bold text-dark mb-6 text-center">Comienza ahora</h3>
+
+  <form id="signup-form" class="space-y-4">
+    <div>
+      <input
+        type="text"
+        id="nombre"
+        placeholder="Nombre"
+        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
+        required
+      />
+    </div>
+
+    <div>
+      <input
+        type="text"
+        id="numero"
+        placeholder="Número"
+        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
+      />
+    </div>
+
+    <div>
+      <input
+        type="email"
+        id="email"
+        placeholder="Email"
+        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
+        required
+      />
+    </div>
+
+    <div class="relative">
+      <select
+        id="pais"
+        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm appearance-none bg-white cursor-pointer"
+      >
+        {
+          countries.map((country) => (
+            <option value={country.code}>
+              {country.flag} {country.name}
+            </option>
+          ))
+        }
+      </select>
+      <div
+        class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
+      >
+        <svg
+          class="w-5 h-5 text-gray-400"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </div>
+    </div>
+
+    <div class="flex gap-2">
+      <div class="relative w-24 flex-shrink-0">
+        <select
+          id="codigo-pais"
+          class="w-full px-3 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm appearance-none bg-white cursor-pointer"
+        >
+          <option value="+58">+58</option>
+          <option value="+57">+57</option>
+          <option value="+52">+52</option>
+          <option value="+54">+54</option>
+          <option value="+34">+34</option>
+          <option value="+1">+1</option>
+          <option value="+56">+56</option>
+          <option value="+51">+51</option>
+        </select>
+        <div
+          class="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none"
+        >
+          <svg
+            class="w-4 h-4 text-gray-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </div>
+      </div>
+      <input
+        type="tel"
+        id="telefono"
+        placeholder="móvil"
+        class="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-sm"
+      />
+    </div>
+
+    <button
+      type="submit"
+      class="w-full bg-primary text-white font-medium py-3 rounded-lg hover:bg-secondary transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+    >
+      Empieza Ecruta Ahora
+    </button>
+  </form>
+
+  <div class="mt-6 pt-6 border-t border-gray-100">
+    <div class="flex flex-col gap-2 text-center">
+      <a
+        href="#"
+        class="text-sm text-gray-500 hover:text-primary transition-colors"
+        >Alicorante</a
+      >
+      <a
+        href="#"
+        class="text-sm text-gray-500 hover:text-primary transition-colors"
+        >Contacto</a
+      >
+    </div>
+  </div>
+
+  <!-- Decorative sparkle -->
+  <div class="absolute -bottom-4 -right-4 text-primary/20">
+    <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
+      <path
+        d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"
+      ></path>
+    </svg>
+  </div>
+</div>
+
+<script>
+  const form = document.getElementById("signup-form");
+
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const formData = {
+      nombre: (document.getElementById("nombre") as HTMLInputElement)?.value,
+      email: (document.getElementById("email") as HTMLInputElement)?.value,
+      pais: (document.getElementById("pais") as HTMLSelectElement)?.value,
+      telefono: (document.getElementById("telefono") as HTMLInputElement)
+        ?.value,
+      codigo: (document.getElementById("codigo-pais") as HTMLSelectElement)
+        ?.value,
+    };
+
+    console.log("Formulario enviado:", formData);
+    alert("¡Gracias por registrarte! Te contactaremos pronto.");
+  });
+</script>
